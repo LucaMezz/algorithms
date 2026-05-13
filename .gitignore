@@ -4,21 +4,42 @@ __pycache__/
 *$py.class
 .pytest_cache/
 .mypy_cache/
+.pyright/
 .ruff_cache/
 .coverage
 coverage.xml
 htmlcov/
 
-# Build artifacts
+# Python build artifacts
 build/
 dist/
 *.egg-info/
 .eggs/
+pip-wheel-metadata/
 
 # Virtual environments
 .venv/
 venv/
 env/
+
+# Node / npm tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.yarn/
+.pnpm-store/
+
+# Package manager lockfiles
+# Keep package-lock.json if using npm for commitlint/husky.
+# Keep pnpm-lock.yaml if using pnpm.
+# Keep yarn.lock if using yarn.
+# Do not ignore lockfiles by default.
+
+# Husky
+# Do not ignore .husky/ because commit hooks should be committed.
 
 # IDE and OS files
 .idea/
@@ -29,7 +50,32 @@ Thumbs.db
 # Local configuration
 .env
 .env.*
+!.env.example
 
 # Benchmark output
 .benchmarks/
 benchmark-results/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Documentation builds
+site/
+docs/_build/
+
+# Type checker / language server cache
+.pyre/
+.pytype/
+
+# Test and tooling cache
+.tox/
+.nox/
+
+# Misc
+.cache/

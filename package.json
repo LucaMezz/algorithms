@@ -1,0 +1,30 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "A typed, tested, and documented Python package containing implementations of core algorithms and data structures from scratch.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucaMezz/algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucaMezz/algorithms/issues"
+  },
+  "homepage": "https://github.com/LucaMezz/algorithms#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "husky": "^9.1.7"
+  }
+}
