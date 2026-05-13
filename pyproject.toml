@@ -1,0 +1,106 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "algorithms-from-scratch"
+version = "0.0.0"
+description = "Readable algorithm and data structure implementations built from scratch."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = [
+  "algorithms",
+  "data-structures",
+  "computer-science",
+  "education",
+  "python",
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Education",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.10",
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+]
+bench = [
+  "pytest-benchmark>=4.0",
+]
+docs = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/mezza/algorithms"
+Repository = "https://github.com/mezza/algorithms"
+Issues = "https://github.com/mezza/algorithms/issues"
+Changelog = "https://github.com/mezza/algorithms/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/algorithms"]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "ANN",
+  "B",
+  "C4",
+  "E",
+  "F",
+  "I",
+  "N",
+  "PL",
+  "PT",
+  "RET",
+  "RUF",
+  "SIM",
+  "UP",
+  "W",
+]
+ignore = [
+  "ANN101",
+  "ANN102",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["ANN", "PLR2004"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["algorithms"]
+
+[tool.coverage.run]
+branch = true
+source = ["algorithms"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
