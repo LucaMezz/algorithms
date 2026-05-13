@@ -27,15 +27,17 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Topic :: Education",
   "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
 ]
 dependencies = []
 
 [project.optional-dependencies]
 dev = [
   "mypy>=1.10",
+  "pre-commit>=4.0",
   "pytest>=8.2",
   "pytest-cov>=5.0",
-  "ruff>=0.5",
+  "ruff>=0.8",
 ]
 bench = [
   "pytest-benchmark>=4.0",
@@ -55,47 +57,14 @@ Changelog = "https://github.com/mezza/algorithms/blob/main/CHANGELOG.md"
 packages = ["src/algorithms"]
 
 [tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
 addopts = [
   "--strict-config",
   "--strict-markers",
+  "--cov=algorithms",
+  "--cov-report=term-missing",
 ]
-testpaths = ["tests"]
-
-[tool.ruff]
-line-length = 88
-target-version = "py311"
-src = ["src", "tests"]
-
-[tool.ruff.lint]
-select = [
-  "A",
-  "ANN",
-  "B",
-  "C4",
-  "E",
-  "F",
-  "I",
-  "N",
-  "PL",
-  "PT",
-  "RET",
-  "RUF",
-  "SIM",
-  "UP",
-  "W",
-]
-ignore = [
-  "ANN101",
-  "ANN102",
-]
-
-[tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["ANN", "PLR2004"]
-
-[tool.mypy]
-python_version = "3.11"
-strict = true
-packages = ["algorithms"]
 
 [tool.coverage.run]
 branch = true
@@ -104,3 +73,63 @@ source = ["algorithms"]
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
+exclude_also = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "raise NotImplementedError",
+  "\\.\\.\\.",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["src", "tests", "examples", "benchmarks"]
+
+[tool.ruff.lint]
+select = [
+  "A",    # flake8-builtins
+  "ANN",  # flake8-annotations
+  "B",    # flake8-bugbear
+  "C4",   # flake8-comprehensions
+  "E",    # pycodestyle errors
+  "F",    # Pyflakes
+  "I",    # isort
+  "N",    # pep8-naming
+  "PL",   # Pylint
+  "PT",   # flake8-pytest-style
+  "RET",  # flake8-return
+  "RUF",  # Ruff-specific rules
+  "SIM",  # flake8-simplify
+  "UP",   # pyupgrade
+  "W",    # pycodestyle warnings
+]
+ignore = [
+  "E501", # handled by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+  "ANN",     # tests do not need full annotation strictness
+  "PLR2004", # magic values are often fine in tests
+]
+"examples/**/*.py" = [
+  "T201", # examples may print output if T20 is enabled later
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+packages = ["algorithms"]
+strict = true
+warn_unused_configs = true
+warn_unreachable = true
+pretty = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
