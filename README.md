@@ -1,8 +1,43 @@
-# Algorithms in Python
+<div align="center">
+  <img src="docs/assets/logo.png" alt="Algorithms in Python logo" width="120" height="120" />
 
-A typed, tested, and documented Python package containing implementations of core algorithms and data structures from scratch.
+  <h1>Algorithms in Python</h1>
 
-This project is designed for algorithm revision, interview preparation, long-term reference, and future reuse in visualisation tools.
+  <p>
+    <strong>
+      Typed, tested, and documented Python implementations of algorithms and data structures from scratch.
+    </strong>
+  </p>
+
+  <p>
+    Built for algorithm revision, interview preparation, long-term reference, and future reuse in visualisation tools.
+  </p>
+
+  <p>
+    <a href="https://github.com/mezza/algorithms/actions/workflows/ci.yml">
+      <img src="https://github.com/mezza/algorithms/actions/workflows/ci.yml/badge.svg" alt="CI status" />
+    </a>
+    <img src="https://img.shields.io/badge/python-3.11%2B-blue" alt="Python 3.11+" />
+    <img src="https://img.shields.io/badge/typed-mypy-blue" alt="Typed with mypy" />
+    <img src="https://img.shields.io/badge/style-ruff-black" alt="Code style: Ruff" />
+    <img src="https://img.shields.io/badge/tests-pytest-green" alt="Tests: pytest" />
+    <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT" />
+  </p>
+</div>
+
+---
+
+## Overview
+
+**Algorithms in Python** is a reusable Python package containing implementations of core algorithms and data structures from scratch.
+
+This project is designed for:
+
+- algorithm and data structures revision
+- LeetCode-style interview preparation
+- long-term computer science reference
+- clean package design practice
+- future reuse in algorithm visualisation tools
 
 The goal is not only to implement algorithms, but to build a clean, reusable package that demonstrates correctness, clarity, documentation, testing, and maintainable software design.
 
@@ -11,10 +46,6 @@ The goal is not only to implement algorithms, but to build a clean, reusable pac
 ## Project Status
 
 This project is in active development.
-
-Completed:
-
-* [x] Gusfield Z-Algorithm
 
 Current focus:
 
@@ -1508,7 +1539,7 @@ Note: Ukkonen's algorithm is one of the most advanced algorithms in this reposit
 
 This phase focuses on efficient text processing algorithms.
 
-* [x] Gusfield Z-Algorithm
+* [ ] Gusfield Z-Algorithm
 * [ ] Pattern Matching using the Z-Algorithm
 * [ ] Boyer-Moore Algorithm
 * [ ] Knuth-Morris-Pratt Algorithm
