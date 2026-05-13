@@ -1850,6 +1850,36 @@ Recommended starting structure:
 
 ---
 
+## Benchmarking
+
+Benchmarks live in `benchmarks/` and are designed to compare measured time and
+peak Python memory usage with normalized expected complexity curves.
+
+Install benchmark dependencies:
+
+```bash
+pip install -e ".[bench]"
+```
+
+Run a benchmark suite:
+
+```bash
+python -m benchmarks.cli benchmarks.benchmark_sorting
+```
+
+The runner writes CSV, JSON, and PNG plots to `benchmark-results/`. Each
+`BenchmarkCase` declares:
+
+* an input factory
+* the operation being measured
+* input sizes
+* expected time complexity
+* optional expected space complexity
+
+See `docs/benchmarking.md` for the full workflow.
+
+---
+
 ## Notes
 
 This repository is a learning project and a reusable package. Some algorithms may have multiple implementations:
