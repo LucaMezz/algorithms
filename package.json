@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A typed, tested, and documented Python package containing implementations of core algorithms and data structures from scratch.",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "doc": "docs",
     "example": "examples",
