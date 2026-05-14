@@ -20,7 +20,9 @@ class _PlotConfig:
     filename_suffix: str
 
 
-def plot_case(case: BenchmarkCase, summaries: Sequence[Summary], output_dir: Path) -> list[Path]:
+def plot_case(
+    case: BenchmarkCase, summaries: Sequence[Summary], output_dir: Path
+) -> list[Path]:
     """Create time and space plots for a benchmark case."""
     case_summaries = [
         summary for summary in summaries if summary.case_name == case.name
@@ -76,7 +78,9 @@ def _plot_metric(
     ordered = sorted(summaries, key=lambda summary: summary.size)
     sizes = [summary.size for summary in ordered]
     observed = [float(getattr(summary, config.metric_name)) for summary in ordered]
-    model = case.expected_space if config.filename_suffix == "space" else case.expected_time
+    model = (
+        case.expected_space if config.filename_suffix == "space" else case.expected_time
+    )
     expected = normalized_curve(model, sizes, observed)
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -84,7 +88,9 @@ def _plot_metric(
 
     figure, axis = plt.subplots(figsize=(8, 5))
     axis.plot(sizes, observed, marker="o", label="observed")
-    axis.plot(sizes, expected, linestyle="--", label=f"expected {config.expected_label}")
+    axis.plot(
+        sizes, expected, linestyle="--", label=f"expected {config.expected_label}"
+    )
     axis.set_title(case.name)
     axis.set_xlabel("Input size (n)")
     axis.set_ylabel(config.ylabel)

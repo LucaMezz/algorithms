@@ -87,4 +87,3 @@ def _find_anchor_index(
         if raw_values[index] > 0 and observed_values[index] > 0:
             return index
     return None
-

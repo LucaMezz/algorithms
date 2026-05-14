@@ -109,4 +109,3 @@ def _measure_once(case: BenchmarkCase, size: int, repeat: int) -> Measurement:
         seconds=seconds,
         peak_bytes=peak_bytes,
     )
-

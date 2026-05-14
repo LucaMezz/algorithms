@@ -40,4 +40,3 @@ def _write_dataclass_csv(path: Path, rows: list[Measurement] | list[Summary]) ->
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(asdict(row) for row in rows)
-
