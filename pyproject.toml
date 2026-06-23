@@ -93,6 +93,7 @@ select = [
   "ANN",  # flake8-annotations
   "B",    # flake8-bugbear
   "C4",   # flake8-comprehensions
+  "D",    # pydocstyle
   "E",    # pycodestyle errors
   "F",    # Pyflakes
   "I",    # isort
@@ -106,18 +107,27 @@ select = [
   "W",    # pycodestyle warnings
 ]
 ignore = [
-  "E501", # handled by formatter
+  "D100",  # module-level docstrings not required on re-export __init__.py files
+  "D104",  # package-level docstrings not required on __init__.py files
+  "D105",  # magic method docstrings not required (signature is self-documenting)
+  "D107",  # __init__ docstring not required (class docstring covers construction)
+  "E501",  # line length handled by formatter
 ]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
   "ANN",     # tests do not need full annotation strictness
+  "D",       # tests do not need docstrings
   "PLR2004", # magic values are often fine in tests
 ]
 "examples/**/*.py" = [
   "T201", # examples may print output if T20 is enabled later
 ]
 "benchmarks/**/*.py" = [
+  "D",    # benchmark scripts do not need docstrings
   "T201", # benchmark CLI reports generated files to stdout
 ]
 
@@ -135,6 +145,3 @@ warn_unused_configs = true
 warn_unreachable = true
 pretty = true
 
-[[tool.mypy.overrides]]
-module = "tests.*"
-disallow_untyped_defs = false

@@ -1,0 +1,54 @@
+site_name: Algorithms in Python
+site_description: Typed Python implementations of algorithms and data structures from scratch.
+repo_url: https://github.com/LucaMezz/algorithms
+repo_name: LucaMezz/algorithms
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_signature_annotations: true
+            separate_signature: true
+            merge_init_into_class: true
+            show_root_heading: true
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Complexity Cheatsheet: complexity-cheatsheet.md
+  - Benchmarking: benchmarking.md
+  - Design Decisions:
+    - Use src layout: decisions/0001-use-src-layout.md
+    - Separate ADTs from implementations: decisions/0002-separate-adts-from-implementations.md
+    - Tracing APIs for visualisation: decisions/0003-add-tracing-apis-for-visualisation.md
