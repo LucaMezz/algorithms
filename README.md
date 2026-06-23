@@ -14,8 +14,8 @@
   </p>
 
   <p>
-    <a href="https://github.com/mezza/algorithms/actions/workflows/ci.yml">
-      <img src="https://github.com/mezza/algorithms/actions/workflows/ci.yml/badge.svg" alt="CI status" />
+    <a href="https://github.com/LucaMezz/algorithms/actions/workflows/ci.yml">
+      <img src="https://github.com/LucaMezz/algorithms/actions/workflows/ci.yml/badge.svg" alt="CI status" />
     </a>
     <img src="https://img.shields.io/badge/python-3.11%2B-blue" alt="Python 3.11+" />
     <img src="https://img.shields.io/badge/typed-mypy-blue" alt="Typed with mypy" />
@@ -177,9 +177,9 @@ The normal algorithm API should return the final result. Tracing APIs should exp
 
 ## Package Goals
 
-This repository should be designed as an installable Python package, not just a collection of standalone scripts.
+This repository is designed as an installable Python package, not just a collection of standalone scripts.
 
-That means implementations should be:
+Implementations are:
 
 * importable from other Python code
 * tested as package modules
@@ -194,38 +194,20 @@ A future visualiser website, desktop app, or API should be able to depend on thi
 ## Suggested Repository Structure
 
 ```text
-algorithms-python/
+algorithms/
+├── pyproject.toml
+├── Makefile
 ├── README.md
-├── LICENSE
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── SECURITY.md
-├── pyproject.toml
-├── .gitignore
+├── LICENSE
 ├── .github/
 │   ├── workflows/
-│   │   └── ci.yml
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.md
-│   │   ├── algorithm_request.md
-│   │   └── documentation_improvement.md
-│   └── pull_request_template.md
+│   └── ISSUE_TEMPLATE/
 ├── src/
 │   └── algorithms/
-│       ├── __init__.py
-│       ├── py.typed
 │       ├── adts/
-│       │   ├── __init__.py
-│       │   ├── stack.py
-│       │   ├── queue.py
-│       │   ├── deque.py
-│       │   ├── priority_queue.py
-│       │   ├── dictionary.py
-│       │   ├── set.py
-│       │   └── sequence.py
 │       ├── data_structures/
-│       │   ├── __init__.py
 │       │   ├── arrays/
 │       │   ├── linked_lists/
 │       │   ├── stacks/
@@ -235,56 +217,27 @@ algorithms-python/
 │       │   ├── trees/
 │       │   └── union_find/
 │       ├── searching/
-│       │   └── __init__.py
 │       ├── sorting/
-│       │   └── __init__.py
 │       ├── selection/
-│       │   └── __init__.py
 │       ├── graphs/
-│       │   └── __init__.py
 │       ├── greedy/
-│       │   └── __init__.py
 │       ├── dynamic_programming/
-│       │   └── __init__.py
 │       ├── shortest_paths/
-│       │   └── __init__.py
 │       ├── flows/
-│       │   └── __init__.py
 │       ├── strings/
-│       │   └── __init__.py
 │       ├── compression/
-│       │   └── __init__.py
 │       └── tracing/
-│           └── __init__.py
 ├── tests/
-│   ├── adts/
-│   ├── data_structures/
-│   ├── searching/
-│   ├── sorting/
-│   ├── graphs/
-│   ├── dynamic_programming/
-│   └── strings/
+│   └── <mirrors src/algorithms/ structure>
 ├── docs/
-│   ├── index.md
-│   ├── getting-started.md
-│   ├── adts/
-│   ├── api/
-│   ├── notes/
-│   ├── traces/
 │   ├── decisions/
-│   │   ├── 0001-use-src-layout.md
-│   │   ├── 0002-separate-adts-from-implementations.md
-│   │   └── 0003-add-tracing-apis-for-visualisation.md
-│   └── complexity-cheatsheet.md
+│   └── notes/
 ├── examples/
 │   ├── sorting/
 │   ├── graphs/
 │   ├── data_structures/
 │   └── tracing/
 └── benchmarks/
-    ├── benchmark_sorting.py
-    ├── benchmark_hash_tables.py
-    └── benchmark_graphs.py
 ```
 
 Recommended convention for each algorithm:
@@ -939,42 +892,17 @@ Run type checking:
 mypy src
 ```
 
-Alternatively, this project may use Pyright instead of Mypy:
+All checks can be run together with:
 
 ```bash
-pyright
+make check
 ```
-
-The final project should consistently run:
-
-* formatting
-* linting
-* type checking
-* tests
-* coverage checks where useful
 
 ---
 
 ## Continuous Integration
 
-The GitHub Actions CI pipeline should run on every push and pull request.
-
-CI should check:
-
-* package installation
-* formatting
-* linting
-* type correctness
-* unit tests
-* coverage where useful
-
-Recommended workflow path:
-
-```text
-.github/workflows/ci.yml
-```
-
-Once CI is configured, add a CI badge near the top of this README.
+The CI pipeline (`.github/workflows/ci.yml`) runs on every push and pull request across Python 3.11, 3.12, and 3.13. It checks formatting, linting, type correctness, and the test suite.
 
 ---
 
@@ -1048,64 +976,31 @@ Examples should demonstrate public package APIs rather than importing private he
 
 ## Benchmarks
 
-Benchmarks are optional and should be added after the core package, tests, and documentation are established.
+Benchmarks live in `benchmarks/` and compare implementations against expected complexity curves. See the [Benchmarking guide](docs/benchmarking.md) for setup and usage.
 
-Possible structure:
+Planned benchmark subjects include:
 
-```text
-benchmarks/
-├── benchmark_sorting.py
-├── benchmark_hash_tables.py
-└── benchmark_graphs.py
-```
-
-Potential benchmarks:
-
-* custom merge sort vs Python `sorted`
+* custom sorting implementations vs Python `sorted`
 * different priority queue implementations
 * different hash table collision strategies
 * Dijkstra's algorithm with different priority queue implementations
 * recursive vs iterative graph traversal
 
-Benchmarks should be used for learning and comparison, not as the main definition of project quality.
+Benchmarks are for learning and comparison, not as the primary measure of project quality.
 
 ---
 
 ## Architecture Decisions
 
-For important design choices, add short architecture decision records in `docs/decisions`.
+Important design choices are recorded as short ADRs in `docs/decisions`. Each record states the decision, the reason, and the consequences.
 
-Example decisions:
-
-```text
-docs/decisions/0001-use-src-layout.md
-docs/decisions/0002-separate-adts-from-implementations.md
-docs/decisions/0003-add-tracing-apis-for-visualisation.md
-```
-
-Example ADR format:
-
-```md
-# 0002 — Separate ADTs from Concrete Implementations
-
-## Decision
-
-Abstract data type contracts will be defined separately from concrete implementations.
-
-## Reason
-
-This allows multiple implementations to satisfy the same behavior while making performance trade-offs explicit.
-
-## Consequences
-
-Tests can be written against contracts and reused across implementations.
-```
+New decisions follow the same format. See the existing records for examples.
 
 ---
 
 ## Contributing
 
-Contributions are welcome once the project structure is stable.
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and the pull request checklist.
 
 Each new algorithm or data structure should include:
 

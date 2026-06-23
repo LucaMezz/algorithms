@@ -46,13 +46,14 @@ bench = [
 docs = [
   "mkdocs>=1.6",
   "mkdocs-material>=9.5",
+  "mkdocstrings[python]>=0.25",
 ]
 
 [project.urls]
-Homepage = "https://github.com/mezza/algorithms"
-Repository = "https://github.com/mezza/algorithms"
-Issues = "https://github.com/mezza/algorithms/issues"
-Changelog = "https://github.com/mezza/algorithms/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/LucaMezz/algorithms"
+Repository = "https://github.com/LucaMezz/algorithms"
+Issues = "https://github.com/LucaMezz/algorithms/issues"
+Changelog = "https://github.com/LucaMezz/algorithms/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/algorithms"]
