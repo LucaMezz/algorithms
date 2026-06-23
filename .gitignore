@@ -73,6 +73,9 @@ docs/_build/
 .pyre/
 .pytype/
 
+# Editor-local language server config (e.g. pyrightconfig.json for VS Code / Neovim)
+pyrightconfig.json
+
 # Test and tooling cache
 .tox/
 .nox/
