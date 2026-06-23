@@ -52,6 +52,12 @@ Closes #
 Commands run:
 
 ```bash
+make check
+```
+
+Or individually:
+
+```bash
 ruff format .
 ruff check .
 mypy src
