@@ -1118,63 +1118,19 @@ Each new algorithm or data structure should include:
 * package export where appropriate
 * documentation for non-trivial algorithms
 
-Recommended files:
-
-```text
-CONTRIBUTING.md
-.github/ISSUE_TEMPLATE/bug_report.md
-.github/ISSUE_TEMPLATE/algorithm_request.md
-.github/ISSUE_TEMPLATE/documentation_improvement.md
-.github/pull_request_template.md
-```
-
-Suggested pull request checklist:
-
-```md
-## Summary
-
-Describe the change.
-
-## Checklist
-
-- [ ] Implementation added
-- [ ] Tests added
-- [ ] Type annotations added
-- [ ] Docstrings added
-- [ ] Complexity documented
-- [ ] README checklist updated
-```
-
 ---
 
 ## Security
 
 This project is an educational algorithms package and is not intended for security-critical use.
 
-If you discover unsafe behavior, please open an issue or contact the maintainer.
-
-Recommended file:
-
-```text
-SECURITY.md
-```
+If you discover unsafe behavior, please open an issue or contact the maintainer. See [SECURITY.md](SECURITY.md) for more detail.
 
 ---
 
 ## License
 
-This project should include an open-source license.
-
-Recommended options:
-
-* MIT License
-* Apache License 2.0
-
-Recommended file:
-
-```text
-LICENSE
-```
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
