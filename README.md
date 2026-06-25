@@ -1061,7 +1061,7 @@ A data structure is only marked complete when it has:
 
 | Area                                  | Completed | Total |
 | ------------------------------------- | --------: | ----: |
-| Searching, Sorting, and Selection     |         0 |    28 |
+| Searching, Sorting, and Selection     |         0 |    29 |
 | Graph Traversal and Connectivity      |         0 |    10 |
 | Shortest Paths and Transitive Closure |         0 |     7 |
 | Dynamic Programming                   |         0 |    12 |
@@ -1087,6 +1087,7 @@ This roadmap keeps the original university algorithms first, because notes alrea
 These algorithms build the base skills needed for almost everything else: loops, invariants, recursion, divide-and-conquer, and basic complexity analysis.
 
 * [x] Binary Search
+* [x] Bubble Sort
 * [x] Selection Sort
 * [ ] Insertion Sort
 * [ ] Karatsuba's Multiplication Algorithm
@@ -1095,6 +1096,7 @@ These algorithms build the base skills needed for almost everything else: loops,
 
 Recommended order:
 
+1. Bubble Sort
 1. Selection Sort
 2. Insertion Sort
 3. Binary Search
