@@ -8,6 +8,9 @@ T = TypeVar("T", bound=SupportsLessThan)
 def selection_sort(values: list[T]) -> None:
     r"""Sort the list of values into ascending order. Sorting is done inline.
 
+    ``T`` can be any type that supports ``<`` comparison.
+    See [SupportsLessThan][algorithms.protocols.SupportsLessThan].
+
     Args:
         values: A list of integer values.
 
