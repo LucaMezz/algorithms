@@ -134,10 +134,10 @@ def example(values: Sequence[int], target: int) -> int | None:
         ValueError: When and why this is raised. Omit if no exceptions.
 
     Time complexity:
-        O(log n).
+        O(log N) worst case, where N is the number of elements.
 
     Space complexity:
-        O(1).
+        O(1) auxiliary space.
     """
 ```
 
