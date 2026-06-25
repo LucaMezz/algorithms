@@ -1,0 +1,20 @@
+:root {
+  --md-admonition-icon--complexity: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z'/></svg>");
+}
+
+.md-typeset .admonition.complexity,
+.md-typeset details.complexity {
+  border-color: rgb(123, 97, 255);
+}
+
+.md-typeset .complexity > .admonition-title,
+.md-typeset .complexity > summary {
+  background-color: rgba(123, 97, 255, 0.1);
+}
+
+.md-typeset .complexity > .admonition-title::before,
+.md-typeset .complexity > summary::before {
+  background-color: rgb(123, 97, 255);
+  -webkit-mask-image: var(--md-admonition-icon--complexity);
+          mask-image: var(--md-admonition-icon--complexity);
+}

@@ -24,10 +24,10 @@ def binary_search(
     Returns:
         The index of the key in the sequence, or ``None`` if not found.
 
-    Time complexity:
+    !!! complexity "Time complexity"
         $O(\log N)$ worst case, where $N$ is the length of the ``values`` sequence.
 
-    Space complexity:
+    !!! complexity "Space complexity"
         $O(1)$ auxiliary space.
 
     """
