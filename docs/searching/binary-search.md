@@ -1,3 +1,3 @@
 # Binary Search
 
-::: algorithms.searching.binary_search
+::: algorithms.searching.binary_search.binary_search
