@@ -57,7 +57,7 @@ Current focus:
 
 Next recommended implementation:
 
-* [ ] Selection Sort
+* [x] Selection Sort
 
 ---
 
@@ -1087,7 +1087,7 @@ This roadmap keeps the original university algorithms first, because notes alrea
 These algorithms build the base skills needed for almost everything else: loops, invariants, recursion, divide-and-conquer, and basic complexity analysis.
 
 * [x] Binary Search
-* [ ] Selection Sort
+* [x] Selection Sort
 * [ ] Insertion Sort
 * [ ] Karatsuba's Multiplication Algorithm
 * [ ] Merge
