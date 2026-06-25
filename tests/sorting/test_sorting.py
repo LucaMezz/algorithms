@@ -1,10 +1,16 @@
+from collections.abc import Callable
+from typing import Any
+
 import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
-from algorithms.sorting import selection_sort
+from algorithms.sorting import bubble_sort, selection_sort
+
+SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [bubble_sort, selection_sort]
 
 
+@pytest.mark.parametrize("sort", SORTING_ALGORITHMS, ids=lambda f: f.__name__)
 class TestSorted:
     @pytest.mark.parametrize(
         "values",
@@ -27,15 +33,18 @@ class TestSorted:
             [0.1, 0.1, 0.1],
         ],
     )
-    def test_sorts(self, values: list[int]) -> None:
+    def test_sorts(self, sort: Callable[[list[Any]], None], values: list[Any]) -> None:
         actual = sorted(values)
-        selection_sort(values)
+        sort(values)
         assert values == actual
 
 
+@pytest.mark.parametrize("sort", SORTING_ALGORITHMS, ids=lambda f: f.__name__)
 class TestProperties:
     @given(st.lists(st.integers()))
-    def test_result_is_correct(self, values: list[int]) -> None:
+    def test_result_is_correct(
+        self, sort: Callable[[list[Any]], None], values: list[int]
+    ) -> None:
         actual = sorted(values)
-        selection_sort(values)
+        sort(values)
         assert values == actual
