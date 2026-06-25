@@ -1089,7 +1089,7 @@ These algorithms build the base skills needed for almost everything else: loops,
 * [x] Binary Search
 * [x] Bubble Sort
 * [x] Selection Sort
-* [ ] Insertion Sort
+* [x] Insertion Sort
 * [ ] Karatsuba's Multiplication Algorithm
 * [ ] Merge
 * [ ] Merge Sort

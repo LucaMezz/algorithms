@@ -6,8 +6,13 @@ from hypothesis import given
 from hypothesis import strategies as st
 
 from algorithms.sorting import bubble_sort, selection_sort
+from algorithms.sorting.insertion_sort import insertion_sort
 
-SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [bubble_sort, selection_sort]
+SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [
+    bubble_sort,
+    selection_sort,
+    insertion_sort,
+]
 
 
 @pytest.mark.parametrize("sort", SORTING_ALGORITHMS, ids=lambda f: f.__name__)
