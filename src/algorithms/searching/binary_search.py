@@ -1,12 +1,9 @@
 from collections.abc import Sequence
-from typing import Protocol, Self, TypeVar
+from typing import TypeVar
 
+from algorithms.protocols import SupportsLessThan
 
-class _SupportsLessThan(Protocol):
-    def __lt__(self, other: Self, /) -> bool: ...
-
-
-T = TypeVar("T", bound=_SupportsLessThan)
+T = TypeVar("T", bound=SupportsLessThan)
 
 
 def binary_search(
@@ -14,6 +11,9 @@ def binary_search(
     key: T,
 ) -> int | None:
     r"""Search the given sorted sequence for the key.
+
+    ``T`` can be any type that supports ``<`` comparison.
+    See [SupportsLessThan][algorithms.protocols.SupportsLessThan].
 
     Args:
         values: A **sorted** sequence of comparable values. Passing an
