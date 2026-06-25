@@ -1,4 +1,11 @@
-def selection_sort(values: list[int]) -> None:
+from typing import TypeVar
+
+from algorithms.protocols import SupportsLessThan
+
+T = TypeVar("T", bound=SupportsLessThan)
+
+
+def selection_sort(values: list[T]) -> None:
     r"""Sort the list of values into ascending order. Sorting is done inline.
 
     Args:
@@ -9,6 +16,9 @@ def selection_sort(values: list[int]) -> None:
 
     !!! complexity "Space complexity"
         $O(1) auxiliary. Sorting is done inline.
+
+    !!! property "Stability"
+        Unstable - the swap step can displace equal elements relative to each other.
     """
     n = len(values)
 
