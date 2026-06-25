@@ -24,7 +24,7 @@ def binary_search(
         The index of the key in the sequence, or ``None`` if not found.
 
     Time complexity:
-        O(log N) where N is the length of the values sequence.
+        O(log N) worst case, where N is the length of the ``values`` sequence.
 
     Space complexity:
         O(1) auxiliary space.
