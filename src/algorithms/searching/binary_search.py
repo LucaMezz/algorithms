@@ -13,21 +13,22 @@ def binary_search(
     values: Sequence[T],
     key: T,
 ) -> int | None:
-    """Search the given sorted sequence for the key.
+    r"""Search the given sorted sequence for the key.
 
     Args:
         values: A **sorted** sequence of comparable values. Passing an
             unsorted sequence produces undefined behaviour.
-        key: The key to search for.
+        key: The key to search for. If the sequence contains duplicates,
+            the index of an arbitrary match is returned.
 
     Returns:
         The index of the key in the sequence, or ``None`` if not found.
 
     Time complexity:
-        O(log N) worst case, where N is the length of the ``values`` sequence.
+        $O(\log N)$ worst case, where $N$ is the length of the ``values`` sequence.
 
     Space complexity:
-        O(1) auxiliary space.
+        $O(1)$ auxiliary space.
 
     """
     lo = 0
