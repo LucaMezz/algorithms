@@ -53,6 +53,8 @@ nav:
   - Getting Started: getting-started.md
   - Complexity Cheatsheet: complexity-cheatsheet.md
   - Benchmarking: benchmarking.md
+  - Searching:
+    - Binary Search: searching/binary-search.md
   - Design Decisions:
     - Use src layout: decisions/0001-use-src-layout.md
     - Separate ADTs from implementations: decisions/0002-separate-adts-from-implementations.md
