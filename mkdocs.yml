@@ -60,6 +60,7 @@ nav:
     - Binary Search: searching/binary-search.md
   - Sorting:
     - Bubble Sort: sorting/bubble-sort.md
+    - Insertion Sort: sorting/insertion-sort.md
     - Selection Sort: sorting/selection-sort.md
   - Design Decisions:
     - Use src layout: decisions/0001-use-src-layout.md
