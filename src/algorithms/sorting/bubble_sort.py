@@ -20,6 +20,10 @@ def bubble_sort(values: list[T]) -> None:
 
     !!! complexity "Space complexity"
         $O(1)$ auxiliary. Sorting is done inline.
+
+    !!! property "Stability"
+        Stable - Swaps only occur between adjacent values. Since we use strict
+        inequality, two equal values will never be swapped.
     """
     n = len(values)
     for _ in range(1, n):
