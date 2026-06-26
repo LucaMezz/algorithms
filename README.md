@@ -1115,7 +1115,7 @@ This phase strengthens understanding of recursive decomposition, partitioning, a
 * [ ] Naive Partitioning
 * [ ] Hoare Partitioning
 * [ ] Dutch National Flag Partitioning
-* [ ] Quicksort
+* [x] Quicksort
 * [ ] Select Minimum
 * [ ] Select Minimum and Maximum
 * [ ] Quickselect
