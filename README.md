@@ -1110,8 +1110,8 @@ Recommended order:
 
 This phase strengthens understanding of recursive decomposition, partitioning, and average-case versus worst-case analysis.
 
-* [ ] Sort-and-Count Inversions
-* [ ] Merge-and-Count Split Inversions
+* [x] Sort-and-Count Inversions
+* [x] Merge-and-Count Split Inversions
 * [ ] Naive Partitioning
 * [ ] Hoare Partitioning
 * [ ] Dutch National Flag Partitioning
