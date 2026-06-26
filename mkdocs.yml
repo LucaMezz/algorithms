@@ -62,6 +62,7 @@ nav:
     - Bubble Sort: sorting/bubble-sort.md
     - Insertion Sort: sorting/insertion-sort.md
     - Selection Sort: sorting/selection-sort.md
+    - Quick Sort: sorting/quick-sort.md
   - Design Decisions:
     - Use src layout: decisions/0001-use-src-layout.md
     - Separate ADTs from implementations: decisions/0002-separate-adts-from-implementations.md

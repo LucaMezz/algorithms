@@ -7,11 +7,13 @@ from hypothesis import strategies as st
 
 from algorithms.sorting import bubble_sort, selection_sort
 from algorithms.sorting.insertion_sort import insertion_sort
+from algorithms.sorting.quick_sort import quick_sort
 
 SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [
     bubble_sort,
     selection_sort,
     insertion_sort,
+    quick_sort,
 ]
 
 
