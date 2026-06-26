@@ -8,6 +8,7 @@ from hypothesis import strategies as st
 from algorithms.sorting import bubble_sort, selection_sort
 from algorithms.sorting.insertion_sort import insertion_sort
 from algorithms.sorting.merge_sort import merge_sort
+from algorithms.sorting.quick_sort import quick_sort
 
 
 def _as_inplace(fn: Callable[[list[Any]], list[Any]]) -> Callable[[list[Any]], None]:
@@ -23,6 +24,7 @@ SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [
     selection_sort,
     insertion_sort,
     _as_inplace(merge_sort),
+    quick_sort,
 ]
 
 
