@@ -1091,8 +1091,8 @@ These algorithms build the base skills needed for almost everything else: loops,
 * [x] Selection Sort
 * [x] Insertion Sort
 * [ ] Karatsuba's Multiplication Algorithm
-* [ ] Merge
-* [ ] Merge Sort
+* [x] Merge
+* [x] Merge Sort
 
 Recommended order:
 
@@ -1115,7 +1115,7 @@ This phase strengthens understanding of recursive decomposition, partitioning, a
 * [ ] Naive Partitioning
 * [ ] Hoare Partitioning
 * [ ] Dutch National Flag Partitioning
-* [ ] Quicksort
+* [x] Quicksort
 * [ ] Select Minimum
 * [ ] Select Minimum and Maximum
 * [ ] Quickselect
