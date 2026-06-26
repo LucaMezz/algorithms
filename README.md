@@ -1091,8 +1091,8 @@ These algorithms build the base skills needed for almost everything else: loops,
 * [x] Selection Sort
 * [x] Insertion Sort
 * [ ] Karatsuba's Multiplication Algorithm
-* [ ] Merge
-* [ ] Merge Sort
+* [x] Merge
+* [x] Merge Sort
 
 Recommended order:
 
