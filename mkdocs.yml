@@ -68,6 +68,7 @@ nav:
   - Data Structures:
     - Heap ADT: data-structures/heap-adt.md
     - Min Heap: data-structures/min-heap.md
+    - Max Heap: data-structures/max-heap.md
   - Design Decisions:
     - Use src layout: decisions/0001-use-src-layout.md
     - Separate ADTs from implementations: decisions/0002-separate-adts-from-implementations.md
