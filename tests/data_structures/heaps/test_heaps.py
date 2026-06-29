@@ -4,6 +4,7 @@ import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
+from algorithms.data_structures.heaps.max_heap import MaxHeap
 from algorithms.data_structures.heaps.min_heap import MinHeap
 
 
@@ -17,7 +18,7 @@ class HeapSpec:
 
 HEAP_IMPLEMENTATIONS: list[HeapSpec] = [
     HeapSpec(cls=MinHeap, reverse=False),
-    # HeapSpec(cls=MaxHeap, reverse=True),  # uncomment when implemented
+    HeapSpec(cls=MaxHeap, reverse=True),
 ]
 
 
