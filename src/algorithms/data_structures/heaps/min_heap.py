@@ -7,11 +7,15 @@ from algorithms.protocols import SupportsLessThan
 T = TypeVar("T", bound=SupportsLessThan)
 
 
+def _parent(child: int) -> int:
+    return (child - 1) // 2
+
+
 class MinHeap(Heap[T]):
     """A min heap."""
 
     def __init__(self) -> None:
-        self.values: list[T] = []
+        self._values: list[T] = []
 
     def insert(self, value: T) -> None:
         r"""Insert a value into the heap.
@@ -32,8 +36,8 @@ class MinHeap(Heap[T]):
         !!! complexity "Space complexity"
             $O(1) auxiliary.
         """
-        self.values.append(value)
-        self._bubble_up(len(self.values) - 1)
+        self._values.append(value)
+        self._bubble_up(len(self._values) - 1)
 
     def extract(self) -> T:
         r"""Extract the smallest value from the heap.
@@ -47,8 +51,8 @@ class MinHeap(Heap[T]):
         !!! complexity "Space complexity"
             $O(1) auxiliary.
         """
-        self._swap(0, len(self.values) - 1)
-        value = self.values.pop()
+        self._swap(0, len(self._values) - 1)
+        value = self._values.pop()
         self._bubble_down(0)
         return value
 
@@ -64,7 +68,7 @@ class MinHeap(Heap[T]):
         !!! complexity "Space complexity"
             $O(1)$ auxiliary.
         """
-        return self.values[0]
+        return self._values[0]
 
     def size(self) -> int:
         """Get the number of elements within the heap.
@@ -75,11 +79,11 @@ class MinHeap(Heap[T]):
         !!! complexity "Space complexity"
             $O(1)$ auxiliary.
         """
-        return len(self.values)
+        return len(self._values)
 
     def is_empty(self) -> bool:
         """Check if the heap is empty."""
-        return len(self.values) == 0
+        return len(self._values) == 0
 
     def _bubble_up(self, index: int) -> None:
         r"""Continuously swap node with its parent node until the node no longer violates the min heap property.
@@ -92,9 +96,9 @@ class MinHeap(Heap[T]):
         """
         curr = index
 
-        while curr > 0 and self.values[self._parent(curr)] > self.values[curr]:
-            self._swap(self._parent(curr), curr)
-            curr = self._parent(curr)
+        while curr > 0 and self._values[_parent(curr)] > self._values[curr]:
+            self._swap(_parent(curr), curr)
+            curr = _parent(curr)
 
     def _bubble_down(self, index: int = 0) -> None:
         r"""Continuously swap node with its child node of smallest value until the node no longer violates the min heap property.
@@ -111,9 +115,12 @@ class MinHeap(Heap[T]):
             left, right = 2 * curr + 1, 2 * curr + 2
             smallest = curr
 
-            if left < len(self.values) and self.values[left] < self.values[smallest]:
+            if left < len(self._values) and self._values[left] < self._values[smallest]:
                 smallest = left
-            if right < len(self.values) and self.values[right] < self.values[smallest]:
+            if (
+                right < len(self._values)
+                and self._values[right] < self._values[smallest]
+            ):
                 smallest = right
 
             if smallest == curr:
@@ -123,13 +130,23 @@ class MinHeap(Heap[T]):
             curr = smallest
 
     def _swap(self, a: int, b: int) -> None:
-        self.values[a], self.values[b] = self.values[b], self.values[a]
+        self._values[a], self._values[b] = self._values[b], self._values[a]
 
     @classmethod
     def build_from(cls, values: Sequence[T]) -> Self:
-        """Build a new heap from an existing sequence of values."""
-        raise NotImplementedError
+        """Build a new heap from an existing sequence of values using the heapify algorithm.
 
-    @classmethod
-    def _parent(cls, child: int) -> int:
-        return (child - 1) // 2
+        !!! complexity "Time complexity"
+            $O(N) worst-case, where N is the number of values.
+
+        !!! complexity "Space complexity"
+            $O(1) auxiliary.
+        """
+        heap = cls()
+        heap._values = list(values)
+        end = len(values) - 1
+        last = _parent(end)
+        for i in range(last, -1, -1):
+            heap._bubble_down(i)
+
+        return heap

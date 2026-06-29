@@ -11,7 +11,7 @@ class Heap(ABC, Generic[T]):
     """A heap ADT."""
 
     def __init__(self) -> None:
-        self.values: list[T] = []
+        self._values: list[T] = []
 
     @abstractmethod
     def insert(self, value: T) -> None:
