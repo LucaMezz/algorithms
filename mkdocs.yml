@@ -65,6 +65,10 @@ nav:
     - Merge Sort: sorting/merge-sort.md
     - Quick Sort: sorting/quick-sort.md
     - Sort and Count Inversions: sorting/sort-and-count-inversions.md
+  - Data Structures:
+    - Heap ADT: data-structures/heap-adt.md
+    - Min Heap: data-structures/min-heap.md
+    - Max Heap: data-structures/max-heap.md
   - Design Decisions:
     - Use src layout: decisions/0001-use-src-layout.md
     - Separate ADTs from implementations: decisions/0002-separate-adts-from-implementations.md
