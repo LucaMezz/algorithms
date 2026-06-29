@@ -77,6 +77,12 @@ class TestHeapBehaviour:
         extracted = [h.extract() for _ in range(len(values))]
         assert extracted == sorted(values, reverse=spec.reverse)
 
+    def test_build_from(self, spec: HeapSpec) -> None:
+        values = [6, 3, 7, 1, 9, 2, 4]
+        h = spec.cls.build_from(values)
+        extracted = [h.extract() for _ in range(len(values))]
+        assert extracted == sorted(values, reverse=spec.reverse)
+
     @given(st.lists(st.integers(), min_size=1))
     def test_sequential_extracts_are_sorted(
         self, spec: HeapSpec, values: list[int]
@@ -97,3 +103,14 @@ class TestHeapBehaviour:
             h.insert(v)
 
         assert h.peek() == h.extract()
+
+    @given(st.lists(st.integers(), min_size=1))
+    def test_build_from_matches_insert(self, spec: HeapSpec, values: list[int]) -> None:
+        h1 = spec.cls()
+        for v in values:
+            h1.insert(v)
+        h2 = spec.cls.build_from(values)
+
+        extracted1 = [h1.extract() for _ in range(len(values))]
+        extracted2 = [h2.extract() for _ in range(len(values))]
+        assert extracted1 == extracted2
