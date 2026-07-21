@@ -64,6 +64,7 @@ nav:
     - Selection Sort: sorting/selection-sort.md
     - Merge Sort: sorting/merge-sort.md
     - Quick Sort: sorting/quick-sort.md
+    - Heap Sort: sorting/heap-sort.md
     - Sort and Count Inversions: sorting/sort-and-count-inversions.md
   - Data Structures:
     - Heap ADT: data-structures/heap-adt.md
