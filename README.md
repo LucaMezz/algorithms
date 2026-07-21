@@ -1154,12 +1154,12 @@ Recommended order:
 
 Heaps are essential for efficient priority queues and are used in graph algorithms, scheduling, streaming problems, and selection problems.
 
-* [ ] Heap: Rise
-* [ ] Heap: Fall
-* [ ] Heap: Insert
-* [ ] Heap: Delete
-* [ ] Heapify
-* [ ] Heapsort
+* [x] Heap: Rise
+* [x] Heap: Fall
+* [x] Heap: Insert
+* [x] Heap: Delete
+* [x] Heapify
+* [x] Heapsort
 * [ ] Fibonacci Heap: Insert
 * [ ] Fibonacci Heap: Extract Min
 * [ ] Fibonacci Heap: Decrease Key
