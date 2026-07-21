@@ -21,7 +21,7 @@ class MinHeap(Heap[T]):
         r"""Insert a value into the heap.
 
         Inserts the value at the end of the internal array, furthest from
-        the root. Then bubbles it upwards towards the root until it reaches
+        the root. Then rises it upwards towards the root until it reaches
         a position where it no longer violates the heap property.
 
         Args:
@@ -37,7 +37,7 @@ class MinHeap(Heap[T]):
             $O(1) auxiliary.
         """
         self._values.append(value)
-        self._bubble_up(len(self._values) - 1)
+        self._rise(len(self._values) - 1)
 
     def extract(self) -> T:
         r"""Extract the smallest value from the heap.
@@ -53,7 +53,7 @@ class MinHeap(Heap[T]):
         """
         self._swap(0, len(self._values) - 1)
         value = self._values.pop()
-        self._bubble_down(0)
+        self._fall(0)
         return value
 
     def peek(self) -> T:
@@ -85,7 +85,7 @@ class MinHeap(Heap[T]):
         """Check if the heap is empty."""
         return len(self._values) == 0
 
-    def _bubble_up(self, index: int) -> None:
+    def _rise(self, index: int) -> None:
         r"""Continuously swap node with its parent node until the node no longer violates the min heap property.
 
         !!! complexity "Time complexity"
@@ -100,7 +100,7 @@ class MinHeap(Heap[T]):
             self._swap(_parent(curr), curr)
             curr = _parent(curr)
 
-    def _bubble_down(self, index: int = 0) -> None:
+    def _fall(self, index: int = 0) -> None:
         r"""Continuously swap node with its child node of smallest value until the node no longer violates the min heap property.
 
         !!! complexity "Time complexity"
@@ -147,6 +147,6 @@ class MinHeap(Heap[T]):
         end = len(values) - 1
         last = _parent(end)
         for i in range(last, -1, -1):
-            heap._bubble_down(i)
+            heap._fall(i)
 
         return heap
