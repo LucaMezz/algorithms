@@ -6,6 +6,7 @@ from hypothesis import given
 from hypothesis import strategies as st
 
 from algorithms.sorting import bubble_sort, selection_sort
+from algorithms.sorting.heap_sort import heap_sort
 from algorithms.sorting.insertion_sort import insertion_sort
 from algorithms.sorting.merge_sort import merge_sort
 from algorithms.sorting.quick_sort import quick_sort
@@ -32,6 +33,7 @@ SORTING_ALGORITHMS: list[Callable[[list[Any]], None]] = [
     insertion_sort,
     _as_inplace(merge_sort),
     quick_sort,
+    _as_inplace(heap_sort),
     _sort_and_count_inplace,
 ]
 
